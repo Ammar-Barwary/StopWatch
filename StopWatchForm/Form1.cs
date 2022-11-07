@@ -37,15 +37,28 @@ namespace StopWatchForm
 
         private void ButStart_Click(object sender, EventArgs e)
         {
+            ButPR.Enabled = true;
+            ButStop.Enabled = true;
+            ButStart.Enabled = false;
             timer1.Start();
         }
 
-        private void ButStop_Click(object sender, EventArgs e)
+        private void ButPR_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
+            //timer1.Stop();
+
+            if (ButPR.Text == "Pause")
+            {
+                timer1.Stop();
+                ButPR.Text = "Resume";
+            } else if (ButPR.Text == "Resume")
+            {
+                timer1.Start();
+                ButPR.Text = "Pause";
+            }
         }
 
-        private void ButReset_Click(object sender, EventArgs e)
+        private void ButStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
             sec = 0;
@@ -54,6 +67,9 @@ namespace StopWatchForm
             TextSec.Text = "0";
             TextMin.Text = "0";
             TextHour.Text = "0";
+            ButPR.Enabled = false;
+            ButStop.Enabled = false;
+            ButStart.Enabled = true;
         }
     }
 }

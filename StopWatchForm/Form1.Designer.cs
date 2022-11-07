@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.ButReset = new System.Windows.Forms.Button();
             this.ButStop = new System.Windows.Forms.Button();
+            this.ButPR = new System.Windows.Forms.Button();
             this.ButStart = new System.Windows.Forms.Button();
             this.TextSec = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,27 +43,29 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ButReset
-            // 
-            this.ButReset.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ButReset.Location = new System.Drawing.Point(286, 82);
-            this.ButReset.Name = "ButReset";
-            this.ButReset.Size = new System.Drawing.Size(111, 47);
-            this.ButReset.TabIndex = 2;
-            this.ButReset.Text = "Stop";
-            this.ButReset.UseVisualStyleBackColor = true;
-            this.ButReset.Click += new System.EventHandler(this.ButReset_Click);
-            // 
             // ButStop
             // 
+            this.ButStop.Enabled = false;
             this.ButStop.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ButStop.Location = new System.Drawing.Point(151, 82);
+            this.ButStop.Location = new System.Drawing.Point(286, 82);
             this.ButStop.Name = "ButStop";
             this.ButStop.Size = new System.Drawing.Size(111, 47);
-            this.ButStop.TabIndex = 1;
-            this.ButStop.Text = "Pause";
+            this.ButStop.TabIndex = 2;
+            this.ButStop.Text = "Stop";
             this.ButStop.UseVisualStyleBackColor = true;
             this.ButStop.Click += new System.EventHandler(this.ButStop_Click);
+            // 
+            // ButPR
+            // 
+            this.ButPR.Enabled = false;
+            this.ButPR.Font = new System.Drawing.Font("Roboto", 12F);
+            this.ButPR.Location = new System.Drawing.Point(151, 82);
+            this.ButPR.Name = "ButPR";
+            this.ButPR.Size = new System.Drawing.Size(111, 47);
+            this.ButPR.TabIndex = 1;
+            this.ButPR.Text = "Pause";
+            this.ButPR.UseVisualStyleBackColor = true;
+            this.ButPR.Click += new System.EventHandler(this.ButPR_Click);
             // 
             // ButStart
             // 
@@ -155,8 +157,8 @@
             this.ClientSize = new System.Drawing.Size(409, 141);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ButStart);
+            this.Controls.Add(this.ButPR);
             this.Controls.Add(this.ButStop);
-            this.Controls.Add(this.ButReset);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -171,8 +173,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button ButReset;
         private System.Windows.Forms.Button ButStop;
+        private System.Windows.Forms.Button ButPR;
         private System.Windows.Forms.Button ButStart;
         private System.Windows.Forms.Label TextSec;
         private System.Windows.Forms.Label label3;
