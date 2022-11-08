@@ -40,7 +40,10 @@
             this.TextHour = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ListBox = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ButStop
@@ -150,11 +153,32 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ListBox);
+            this.groupBox2.Location = new System.Drawing.Point(12, 135);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(385, 214);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "List of last time";
+            // 
+            // ListBox
+            // 
+            this.ListBox.Font = new System.Drawing.Font("Roboto", 16F);
+            this.ListBox.FormattingEnabled = true;
+            this.ListBox.ItemHeight = 25;
+            this.ListBox.Location = new System.Drawing.Point(6, 20);
+            this.ListBox.Name = "ListBox";
+            this.ListBox.Size = new System.Drawing.Size(373, 179);
+            this.ListBox.TabIndex = 0;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 141);
+            this.ClientSize = new System.Drawing.Size(409, 361);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ButStart);
             this.Controls.Add(this.ButPR);
@@ -162,11 +186,12 @@
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(425, 180);
-            this.MinimumSize = new System.Drawing.Size(425, 180);
+            this.MaximumSize = new System.Drawing.Size(425, 400);
+            this.MinimumSize = new System.Drawing.Size(425, 400);
             this.Name = "Form1";
             this.Text = "Stop Watch";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -183,6 +208,8 @@
         private System.Windows.Forms.Label TextHour;
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox ListBox;
     }
 }
 

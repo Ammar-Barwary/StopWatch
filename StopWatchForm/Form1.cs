@@ -8,11 +8,18 @@ namespace StopWatchForm
         int sec = 0;
         int min = 0;
         int hour = 0;
+        int count = 1;
 
         public Form1()
         {
             InitializeComponent();
             timer1.Stop();
+        }
+
+        public void AddLastTimer(int s, int m, int h)
+        {
+            ListBox.Items.Add($"{count})   {h} : {m} : {s}");
+            count++;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -61,6 +68,7 @@ namespace StopWatchForm
         private void ButStop_Click(object sender, EventArgs e)
         {
             timer1.Stop();
+            AddLastTimer(sec, min, hour);
             sec = 0;
             min = 0;
             hour = 0;
