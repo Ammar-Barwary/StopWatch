@@ -78,6 +78,18 @@ namespace StopWatchForm
             ButPR.Enabled = false;
             ButStop.Enabled = false;
             ButStart.Enabled = true;
+
+            if (ListBox.Items.Count != 0)
+            {
+                ButClear.Enabled = true;
+            }
+        }
+
+        private void ButClear_Click(object sender, EventArgs e)
+        {
+            count = 1;
+            ListBox.Items.Clear();
+            ButClear.Enabled = false;
         }
     }
 }
