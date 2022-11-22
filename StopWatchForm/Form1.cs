@@ -5,9 +5,9 @@ namespace StopWatchForm
 {
     public partial class Form1 : Form
     {
-        int sec = 0;
-        int min = 0;
-        int hour = 0;
+        int mli = 0, mliTemp = 0;
+        int sec = 0, secTemp = 0;
+        int min = 0, minTemp = 0;
         int count = 1;
 
         public Form1()
@@ -16,7 +16,7 @@ namespace StopWatchForm
             timer1.Stop();
         }
 
-        public void AddLastTimer(int s, int m, int h)
+        public void AddLap(int s, int m, int h)
         {
             ListBox.Items.Add($"{count})   {h} : {m} : {s}");
             count++;
@@ -24,72 +24,81 @@ namespace StopWatchForm
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            sec++;
-            if (sec == 60)
+            mli++;
+            if (mli == 100)
             {
-                min++;
-                if (min == 60)
+                sec++;
+                if (sec == 60)
                 {
-                    hour++;
-                    TextHour.Text = hour.ToString();
+                    min++;
+                    TextHour.Text = min.ToString();
+                    mli = 0;
                     sec = 0;
-                    min = 0;
                 }
-                TextMin.Text = min.ToString();
-                sec = 0;
+                TextMin.Text = sec.ToString();
+                mli = 0;
             }
 
-            TextSec.Text = sec.ToString();
+            TextSec.Text = mli.ToString();
+
+            mliTemp++;
+            if (mliTemp == 100)
+            {
+                secTemp++;
+                if (secTemp == 60)
+                {
+                    minTemp++;
+                    mliTemp = 0;
+                    secTemp = 0;
+                }
+                mliTemp = 0;
+            }
         }
 
         private void ButStart_Click(object sender, EventArgs e)
         {
-            ButPR.Enabled = true;
-            ButStop.Enabled = true;
-            ButStart.Enabled = false;
-            timer1.Start();
-        }
-
-        private void ButPR_Click(object sender, EventArgs e)
-        {
-            //timer1.Stop();
-
-            if (ButPR.Text == "Pause")
+            if (ButStart.Text == "Start")
+            {
+                ButLep.Enabled = true;
+                timer1.Start();
+                ButLep.Text = "Lap";
+                ButStart.Text = "Stop";
+            }
+            else if (ButStart.Text == "Stop")
             {
                 timer1.Stop();
-                ButPR.Text = "Resume";
-            } else if (ButPR.Text == "Resume")
-            {
-                timer1.Start();
-                ButPR.Text = "Pause";
+                ButLep.Text = "Reset";
+                ButStart.Text = "Start";
             }
         }
 
-        private void ButStop_Click(object sender, EventArgs e)
+        private void ButLap_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            AddLastTimer(sec, min, hour);
-            sec = 0;
-            min = 0;
-            hour = 0;
-            TextSec.Text = "0";
-            TextMin.Text = "0";
-            TextHour.Text = "0";
-            ButPR.Enabled = false;
-            ButStop.Enabled = false;
-            ButStart.Enabled = true;
-
-            if (ListBox.Items.Count != 0)
+            if (ButLep.Text == "Lap")
             {
-                ButClear.Enabled = true;
-            }
-        }
+                AddLap(mliTemp, secTemp, minTemp);
 
-        private void ButClear_Click(object sender, EventArgs e)
-        {
-            count = 1;
-            ListBox.Items.Clear();
-            ButClear.Enabled = false;
+                mliTemp = 0;
+                secTemp = 0;
+                minTemp = 0;
+            }
+            else if (ButLep.Text == "Reset")
+            {
+                count = 1;
+                timer1.Stop();
+                mli = 0;
+                mliTemp = 0;
+                sec = 0;
+                secTemp = 0;
+                min = 0;
+                minTemp = 0;
+                TextSec.Text = "0";
+                TextMin.Text = "0";
+                TextHour.Text = "0";
+                ListBox.Items.Clear();
+                ButLep.Text = "Lap";
+                ButLep.Enabled = false;
+            }
         }
     }
 }

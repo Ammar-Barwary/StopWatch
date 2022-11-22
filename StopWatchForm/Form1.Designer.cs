@@ -30,8 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.ButStop = new System.Windows.Forms.Button();
-            this.ButPR = new System.Windows.Forms.Button();
+            this.ButLep = new System.Windows.Forms.Button();
             this.ButStart = new System.Windows.Forms.Button();
             this.TextSec = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,34 +41,21 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ListBox = new System.Windows.Forms.ListBox();
-            this.ButClear = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // ButStop
+            // ButLep
             // 
-            this.ButStop.Enabled = false;
-            this.ButStop.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ButStop.Location = new System.Drawing.Point(286, 82);
-            this.ButStop.Name = "ButStop";
-            this.ButStop.Size = new System.Drawing.Size(111, 47);
-            this.ButStop.TabIndex = 2;
-            this.ButStop.Text = "Stop";
-            this.ButStop.UseVisualStyleBackColor = true;
-            this.ButStop.Click += new System.EventHandler(this.ButStop_Click);
-            // 
-            // ButPR
-            // 
-            this.ButPR.Enabled = false;
-            this.ButPR.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ButPR.Location = new System.Drawing.Point(151, 82);
-            this.ButPR.Name = "ButPR";
-            this.ButPR.Size = new System.Drawing.Size(111, 47);
-            this.ButPR.TabIndex = 1;
-            this.ButPR.Text = "Pause";
-            this.ButPR.UseVisualStyleBackColor = true;
-            this.ButPR.Click += new System.EventHandler(this.ButPR_Click);
+            this.ButLep.Enabled = false;
+            this.ButLep.Font = new System.Drawing.Font("Roboto", 12F);
+            this.ButLep.Location = new System.Drawing.Point(286, 82);
+            this.ButLep.Name = "ButLep";
+            this.ButLep.Size = new System.Drawing.Size(111, 47);
+            this.ButLep.TabIndex = 2;
+            this.ButLep.Text = "Lap";
+            this.ButLep.UseVisualStyleBackColor = true;
+            this.ButLep.Click += new System.EventHandler(this.ButLap_Click);
             // 
             // ButStart
             // 
@@ -151,19 +137,18 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
+            this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.ButClear);
             this.groupBox2.Controls.Add(this.ListBox);
             this.groupBox2.Location = new System.Drawing.Point(12, 135);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(385, 249);
+            this.groupBox2.Size = new System.Drawing.Size(385, 214);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "List of last time";
+            this.groupBox2.Text = "List of Lap";
             // 
             // ListBox
             // 
@@ -175,33 +160,20 @@
             this.ListBox.Size = new System.Drawing.Size(373, 179);
             this.ListBox.TabIndex = 0;
             // 
-            // ButClear
-            // 
-            this.ButClear.Enabled = false;
-            this.ButClear.Font = new System.Drawing.Font("Roboto", 12F);
-            this.ButClear.Location = new System.Drawing.Point(290, 205);
-            this.ButClear.Name = "ButClear";
-            this.ButClear.Size = new System.Drawing.Size(89, 38);
-            this.ButClear.TabIndex = 11;
-            this.ButClear.Text = "Clear";
-            this.ButClear.UseVisualStyleBackColor = true;
-            this.ButClear.Click += new System.EventHandler(this.ButClear_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 396);
+            this.ClientSize = new System.Drawing.Size(409, 361);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ButStart);
-            this.Controls.Add(this.ButPR);
-            this.Controls.Add(this.ButStop);
+            this.Controls.Add(this.ButLep);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(425, 435);
-            this.MinimumSize = new System.Drawing.Size(425, 435);
+            this.MaximumSize = new System.Drawing.Size(425, 400);
+            this.MinimumSize = new System.Drawing.Size(425, 400);
             this.Name = "Form1";
             this.Text = "Stop Watch";
             this.groupBox1.ResumeLayout(false);
@@ -212,8 +184,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button ButStop;
-        private System.Windows.Forms.Button ButPR;
+        private System.Windows.Forms.Button ButLep;
         private System.Windows.Forms.Button ButStart;
         private System.Windows.Forms.Label TextSec;
         private System.Windows.Forms.Label label3;
@@ -224,7 +195,6 @@
         public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ListBox ListBox;
-        private System.Windows.Forms.Button ButClear;
     }
 }
 
